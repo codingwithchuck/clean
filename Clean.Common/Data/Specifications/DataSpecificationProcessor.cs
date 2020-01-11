@@ -3,7 +3,7 @@ using Clean.Common.Data.Ordering;
 
 namespace Clean.Common.Data.Specifications
 {
-    public class DataSpecificationProcessor<TType> where TType : class
+    public static class DataSpecificationProcessor<TType> where TType : class
     {
         public static IQueryable<TType> BuildQuery(IQueryable<TType> query, IDataSpecification<TType> specification)
         {
@@ -19,7 +19,7 @@ namespace Clean.Common.Data.Specifications
         /// <param name="query"></param>
         /// <param name="specification"></param>
         /// <returns></returns>
-        protected static IQueryable<TType> AddOrdering(IQueryable<TType> query, IDataSpecification<TType> specification)
+        private static IQueryable<TType> AddOrdering(IQueryable<TType> query, IDataSpecification<TType> specification)
         {
             IOrderedQueryable<TType> orderBy = null;
 
@@ -46,7 +46,7 @@ namespace Clean.Common.Data.Specifications
         /// <param name="query"></param>
         /// <param name="specification"></param>
         /// <returns></returns>
-        protected static IQueryable<TType> AddFilters(IQueryable<TType> query, IDataSpecification<TType> specification)
+        private static IQueryable<TType> AddFilters(IQueryable<TType> query, IDataSpecification<TType> specification)
         {
             foreach (var t in specification.Filters)
             {

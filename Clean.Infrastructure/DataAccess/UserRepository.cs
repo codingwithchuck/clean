@@ -10,10 +10,8 @@ namespace Clean.Infrastructure.DataAccess
     {
         private readonly InMemoryData _data;
 
-        public UserRepository(InMemoryData data)
-        {
-            _data = data;
-        }
+        public UserRepository(InMemoryData data) 
+            => _data = data;
 
         /// <summary>
         /// Retrieves all the users from the data source.
@@ -68,8 +66,13 @@ namespace Clean.Infrastructure.DataAccess
 
         private void RemoveItem(int userId)
         {
+            const int notFoundPosition = -1;
             var index = _data.Users.FindIndex(s => s.Id == userId);
-            _data.Users.RemoveAt(index);
+
+            if (index > notFoundPosition)
+            {
+                _data.Users.RemoveAt(index);
+            }
         }
 
         /// <summary>

@@ -22,7 +22,7 @@ namespace Clean.Core.Domain
 
         public AccountStatus AccountStatus { get; set; } = AccountStatus.Active;
 
-        public IList<Service> Subscriptions { get; set; } = new List<Service>();
+        public List<Service> Subscriptions { get; set; } = new List<Service>();
 
         public SocialSecurityNumber SocialSecurityNumber { get; set; } = new SocialSecurityNumber();
 
