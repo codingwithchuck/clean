@@ -7,7 +7,7 @@ This example roughly follows the Clean Architecture pattern. This project is a w
 #### Sample Endpoints 
 
 - http://localhost:5000/api/users/status/active - requires a header of x-api-key with a value of 9876
-- http://localhost:5000/api/users/status/active - no authentication require
+- http://localhost:5000/api/users/status/suspended - no authentication require
 
 
 
