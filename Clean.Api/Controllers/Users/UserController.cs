@@ -2,7 +2,10 @@
 using AutoMapper;
 using Clean.Api.ViewModels;
 using Clean.Core.Domain;
+using Clean.Functionality.Users.AddUser;
+using Clean.Functionality.Users.DeleteUser;
 using Clean.Functionality.Users.GetUserById;
+using Clean.Functionality.Users.UpdateUser;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -33,9 +36,14 @@ namespace Clean.Api.Controllers.Users
         /// </summary>
         /// <returns></returns>
         [HttpPost("/api/user")]
-        public IActionResult Post(AddUserViewModel adduser)
+        public async Task<IActionResult> Post(AddUserViewModel adduser)
         {
-            return null;
+           var user = _mapper.Map<AddUserViewModel, User>(adduser);
+            
+            var result = await _mediator.Send(new AddUserRequest(user));
+            var viewModel = _mapper.Map<User, UserViewModel>(result);
+            
+            return Ok(viewModel);
         }
 
         /// <summary>
@@ -43,9 +51,14 @@ namespace Clean.Api.Controllers.Users
         /// </summary>
         /// <returns></returns>
         [HttpPost("/api/user")]
-        public IActionResult Put(UpdateUserViewModel updateUser)
+        public async Task<IActionResult> Put(UpdateUserViewModel updateUser)
         {
-            return null;
+            var user = _mapper.Map<UpdateUserViewModel, User>(updateUser);
+            
+            var result = await _mediator.Send(new UpdateUserRequest(user));
+            var viewModel = _mapper.Map<User, UserViewModel>(result);
+            
+            return Ok(viewModel);
         }
 
         /// <summary>
@@ -53,9 +66,10 @@ namespace Clean.Api.Controllers.Users
         /// </summary>
         /// <returns></returns>
         [HttpDelete("/api/user/{userId:int}")]
-        public IActionResult Delete(int userId)
+        public async Task<IActionResult> Delete(int userId)
         {
-            return null;
+            await _mediator.Send(new DeleteUserRequest(userId));
+            return Ok();
         }
     }
 }

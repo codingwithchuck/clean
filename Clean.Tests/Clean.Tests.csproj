@@ -16,4 +16,10 @@
         <PackageReference Include="coverlet.collector" Version="1.0.1" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Clean.Core\Clean.Core.csproj" />
+      <ProjectReference Include="..\Clean.Functionality\Clean.Functionality.csproj" />
+      <ProjectReference Include="..\Clean.Infrastructure\Clean.Infrastructure.csproj" />
+    </ItemGroup>
+
 </Project>

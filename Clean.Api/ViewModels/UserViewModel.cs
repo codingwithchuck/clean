@@ -27,6 +27,6 @@ namespace Clean.Api.ViewModels
         public string AccountStatusDisplay { get; set; } = string.Empty;
         
         public IList<Service> Subscriptions { get; set; } = new List<Service>();
-
+        public string Suffix { get; set; }
     }
 }

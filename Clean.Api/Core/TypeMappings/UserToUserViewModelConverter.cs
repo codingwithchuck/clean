@@ -17,6 +17,7 @@ namespace Clean.Api.Core.TypeMappings
                     BirthDate = source.BirthDate?.ToString() ?? string.Empty,
                     FirstName = source.FirstName,
                     LastName = source.LastName,
+                    Suffix = source.Suffix,
                     SocialSecurityNumber = source.SocialSecurityNumber.ToString()
                 };
     }

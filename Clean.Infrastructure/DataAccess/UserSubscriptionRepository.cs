@@ -1,8 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Clean.Common.Data.Specifications;
+﻿using System.Linq;
 using Clean.Core.DataAccess;
-using Clean.Core.Domain;
 
 namespace Clean.Infrastructure.DataAccess
 {
@@ -45,13 +42,6 @@ namespace Clean.Infrastructure.DataAccess
             {
                 user.Subscriptions.RemoveAt(index);
             }
-        }
-
-        
-        public IList<Service> Filter(IDataSpecification<Service> specification)
-        {
-            from dataUser in _data.Users
-                join NAME in _data.S on EXPR1 equals EXPR2 
         }
     }
 }

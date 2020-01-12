@@ -33,7 +33,7 @@
  ### Repository Pattern
  The [Repository Pattern](https://deviq.com/repository-pattern/) is a common pattern used to isolate data access logic, typically when retrieving or persisting data to a database. This allows data access logic reuse or swapping out (maybe to support a different flavor of databases) implementations during testing or at runtime.
 
- One of the downsides to the Repository Pattern is what I call Repository Pattern hell. This happens when one Repository depends on another, but the other depends on the one that depends on it. Confused? It creates a cyclomatic relationship.
+ One of the downsides to the Repository Pattern is what I call Repository Pattern hell. This happens when one Repository depends on another, but the other depends on the one that depends on it. Confused? Yeah, me too, but basically it creates a cyclomatic relationship.
 
  ### Specification Pattern
 

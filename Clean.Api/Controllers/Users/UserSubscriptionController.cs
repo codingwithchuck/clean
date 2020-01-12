@@ -1,27 +1,50 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Threading.Tasks;
+using AutoMapper;
+using Clean.Api.ViewModels;
+using Clean.Core.Domain;
+using Clean.Functionality.Subscriptions.SubscribeToService;
+using Clean.Functionality.Subscriptions.UnsubscribeFromService;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Clean.Api.Controllers.Users
 {
+    [Route("/api/subscription/{serviceId:int}/user/{userId:int}")]
     public class UserSubscriptionController : ControllerBase
     {
+        private readonly IMediator _mediator;
+        private readonly IMapper _mapper;
+
+        public UserSubscriptionController(IMediator mediator, IMapper mapper)
+        {
+            _mediator = mediator;
+            _mapper = mapper;
+        }
+        
         /// <summary>
         /// Add new Subscription
         /// </summary>
         /// <returns></returns>
-        [HttpPost("/api/subscription")]
-        public IActionResult Post()
+        [HttpPost]
+        public async Task<IActionResult> Post(int serviceId, int userId)
         {
-            return null;    
+            var result = await _mediator.Send(new SubscribeToServiceRequest(serviceId, userId));
+            var viewModel = _mapper.Map<User, UserViewModel>(result);
+            
+            return Ok(viewModel);
         }
 
         /// <summary>
         /// Unsubscribe
         /// </summary>
         /// <returns></returns>
-        [HttpDelete("/api/subscription")]
-        public IActionResult Delete()
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int serviceId, int userId)
         {
-            return null;
+            var result = await _mediator.Send(new UnsubscribeFromServiceRequest(serviceId, userId));
+            var viewModel = _mapper.Map<User, UserViewModel>(result);
+            
+            return Ok(viewModel);
         }
     }
 }

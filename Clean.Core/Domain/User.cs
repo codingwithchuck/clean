@@ -19,6 +19,8 @@ namespace Clean.Core.Domain
         public string? Title { get; set; }
 
         public DateTime? BirthDate { get; set; }
+        
+        public string Suffix { get; set; }
 
         public AccountStatus AccountStatus { get; set; } = AccountStatus.Active;
 
