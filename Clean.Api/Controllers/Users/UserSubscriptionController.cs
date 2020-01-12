@@ -11,7 +11,7 @@ namespace Clean.Api.Controllers.Users
         [HttpPost("/api/subscription")]
         public IActionResult Post()
         {
-            return null;
+            return null;    
         }
 
         /// <summary>

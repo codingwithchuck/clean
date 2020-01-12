@@ -12,7 +12,7 @@ namespace Clean.Core.ValueTypes
         public SocialSecurityNumber(string socialSecurityNumber)
         {
             var cleanValue = socialSecurityNumber.Replace("-", string.Empty);
-            var isMatch = Regex.IsMatch(cleanValue, "/d");
+            var isMatch = Regex.IsMatch(cleanValue, @"^\d{9}$");
 
             if (!isMatch)
             {

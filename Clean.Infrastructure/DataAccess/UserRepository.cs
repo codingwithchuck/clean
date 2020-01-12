@@ -17,7 +17,7 @@ namespace Clean.Infrastructure.DataAccess
         /// Retrieves all the users from the data source.
         /// </summary>
         /// <returns></returns>
-        public IList<User> GetAll()
+        public List<User> GetAll()
             => _data.Users;
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace Clean.Infrastructure.DataAccess
         /// </summary>
         /// <param name="specification"></param>
         /// <returns></returns>
-        public IList<User> Filter(IDataSpecification<User> specification)
+        public List<User> Filter(IDataSpecification<User> specification)
         {
             var queryable = _data.Users.AsQueryable();
             return DataSpecificationProcessor<User>

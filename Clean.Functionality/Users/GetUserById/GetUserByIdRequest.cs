@@ -1,5 +1,4 @@
 ﻿using Clean.Core.Domain;
-using Clean.Functionality.Common.Requests;
 using MediatR;
 
 namespace Clean.Functionality.Users.GetUserById

@@ -33,7 +33,7 @@ namespace Clean.Api.Controllers.Users
         /// </summary>
         /// <returns></returns>
         [HttpPost("/api/user")]
-        public IActionResult Post()
+        public IActionResult Post(AddUserViewModel adduser)
         {
             return null;
         }
@@ -43,7 +43,7 @@ namespace Clean.Api.Controllers.Users
         /// </summary>
         /// <returns></returns>
         [HttpPost("/api/user")]
-        public IActionResult Put()
+        public IActionResult Put(UpdateUserViewModel updateUser)
         {
             return null;
         }
@@ -53,7 +53,7 @@ namespace Clean.Api.Controllers.Users
         /// </summary>
         /// <returns></returns>
         [HttpDelete("/api/user/{userId:int}")]
-        public IActionResult Delete()
+        public IActionResult Delete(int userId)
         {
             return null;
         }

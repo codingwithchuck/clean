@@ -6,7 +6,7 @@ namespace Clean.Core.DataAccess
 {
     public interface IUserRepository
     {
-        IList<User> GetAll();
+        List<User> GetAll();
 
         User Get(int userId);
 
@@ -16,6 +16,6 @@ namespace Clean.Core.DataAccess
 
         void Delete(int userId);
 
-        IList<User> Filter(IDataSpecification<User> specification);
+        List<User> Filter(IDataSpecification<User> specification);
     }
 }

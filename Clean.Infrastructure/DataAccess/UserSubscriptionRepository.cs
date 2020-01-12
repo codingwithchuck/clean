@@ -50,7 +50,8 @@ namespace Clean.Infrastructure.DataAccess
         
         public IList<Service> Filter(IDataSpecification<Service> specification)
         {
-            throw new System.NotImplementedException();
+            from dataUser in _data.Users
+                join NAME in _data.S on EXPR1 equals EXPR2 
         }
     }
 }

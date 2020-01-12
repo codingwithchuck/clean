@@ -14,7 +14,7 @@ namespace Clean.Api.Core.TypeMappings
                     Title = source.Title,
                     AccountStatus = (int) source.AccountStatus,
                     AccountStatusDisplay = source.AccountStatus.ToString(),
-                    BirthDate = source.BirthDate.HasValue ? source.BirthDate.ToString() : string.Empty,
+                    BirthDate = source.BirthDate?.ToString() ?? string.Empty,
                     FirstName = source.FirstName,
                     LastName = source.LastName,
                     SocialSecurityNumber = source.SocialSecurityNumber.ToString()

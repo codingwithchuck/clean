@@ -65,7 +65,7 @@ namespace Clean.Infrastructure.DataAccess
                 .RuleFor(u => u.Title, (f, u) => f.Name.JobTitle())
                 .RuleFor(u => u.Id, (f, u) => f.IndexGlobal)
                 .RuleFor(u => u.AccountStatus,
-                    (f, u) => f.Random.Enum(AccountStatus.Active, AccountStatus.Disabled, AccountStatus.Suspended))
+                    (f, u) => f.Random.Enum<AccountStatus>())
                 .RuleFor(u => u.BirthDate, (f, u) => f.Person.DateOfBirth)
                 .RuleFor(u => u.SocialSecurityNumber,
                     (f, u) => new SocialSecurityNumber(f.Random.Int(100000000, 999999999).ToString()))

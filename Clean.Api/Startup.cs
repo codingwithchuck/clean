@@ -1,5 +1,6 @@
 using System.Reflection;
 using AutoMapper;
+using Clean.Api.Core.TypeMappings;
 using Clean.Core.DataAccess;
 using Clean.Functionality.Users.GetUserById;
 using Clean.Infrastructure.DataAccess;
@@ -25,9 +26,12 @@ namespace Clean.Api
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IServiceRepository, ServiceRepository>();
             services.AddScoped<IUserSubscriptionRepository, UserSubscriptionRepository>();
+            
+            services.AddControllers()
+                .AddJsonOptions(options => { options.JsonSerializerOptions.WriteIndented = false; });
 
             services.AddMediatR(Assembly.GetAssembly(typeof(GetUserByIdCommand)));
-            services.AddAutoMapper(Assembly.GetAssembly(typeof(GetUserByIdCommand)));
+            services.AddAutoMapper(Assembly.GetAssembly(typeof(UserToUserViewModelConverter)));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,6 +47,7 @@ namespace Clean.Api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGet("/", async context => { await context.Response.WriteAsync("Hello World!"); });
+                endpoints.MapControllers();
             });
         }
     }

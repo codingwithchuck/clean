@@ -1,6 +1,0 @@
-﻿- The demo data is not thread safe. In a real app there would be some sort of locking on writes.
-- uses mediatr
-- use automapper
-- uses clean architecture
-- uses the specification pattern for filtering
-- uses xunit for testing
