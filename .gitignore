@@ -301,3 +301,4 @@ yarn-debug.log*
 yarn-error.log* 
 Momntz\.Api/wwwsrc/build/
 Momntz\.Api/dist
+.idea
