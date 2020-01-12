@@ -1,9 +1,9 @@
 ﻿# .Net Core 3+ Web API Clean Architecture Example
- 
+
  This example roughly follows the Clean Architecture pattern. This project is a work in progress and is not fully baked. There is enough in place to get an ambitious person started.
- 
+
  ## Patterns and Libraries Used
- 
+
  - AutoMapper
  - Bogus
  - Clean Architecture
@@ -12,33 +12,34 @@
  - Repository Pattern
  - Specification Pattern
  - XUnit
- 
+
  ### AutoMapper
- 
+
  [AutoMapper](https://automapper.org/) is an injectable API for mapping one type to another. It centralizes and allows for mapping reuse that typically happens between types when crossing layer boundaries (UI/API, Domain, Data, External Services).
- 
+
  ### Clean Architecture
- 
+
  Also called Onion Architecture or Ports and Adapters, it's an architecture pattern made popular by [Uncle Bob](http://cleancoder.com)'s [Clean Architecture book](https://www.amazon.com/dp/0134494164).
- 
+
  Clean Architecture, in its simplest essence, is coupling to abstractions such as interfaces or abstract classes when taking a dependency on behavior. This allows for implementations of the behavior to be determined at a later time, which could include runtime decisions or changing the behavior during testing.
- 
+
  ### Mediatr
- 
+
  [MediatR](https://github.com/jbogard/MediatR) is used to isolate the responsibilities of each endpoint. This facilitates possibly moving to a microservices architecture, in the future, which is accomplished by grouping the Mediator implementations into Bounded Contexts and then wrapping the Bounded Contexts into an API.
- 
+
  MediatR is an implementation of the mediator pattern, allowing two pieces of code to work independently but communicates via the mediator. The benefit of using the Jimmy Bogards implementation is it has a few extra bells and whistles built into it such as Notifications (think Domain Events), a Behavior Pipeline (Logging, Exception handling, etc.)
- 
- 
+
+
  ### Repository Pattern
  The [Repository Pattern](https://deviq.com/repository-pattern/) is a common pattern used to isolate data access logic, typically when retrieving or persisting data to a database. This allows data access logic reuse or swapping out (maybe to support a different flavor of databases) implementations during testing or at runtime.
- 
+
  One of the downsides to the Repository Pattern is what I call Repository Pattern hell. This happens when one Repository depends on another, but the other depends on the one that depends on it. Confused? It creates a cyclomatic relationship.
- 
+
  ### Specification Pattern
- 
+
  The [Specification Pattern](https://deviq.com/specification-pattern/) decouples and abstracts the conditions which are used to filter a collection of items. This allows for generic filter code, testing the conditions independently of the data sets and for condition reuse.
- 
+
+```
    public class AccountStatusSpecifications : DataSpecification<User>
    {
      public AccountStatusSpecifications(AccountStatus status)
@@ -46,15 +47,16 @@
        Where(s => s.AccountStatus == status);
      }
    }
+```
+
  
- 
- 
+
  ## Testing
- 
+
  ### XUnit
- 
+
  [XUnit](https://xunit.net/) brings simplicity to testing in .Net. Its minimal testing approach gives you the tools to test your application without getting in your way.
- 
+
  ### Fluent Assertions
- 
+
  [Fluent Assertions](https://fluentassertions.com/) brings much-needed readability to the tests in the code and the failed tests. It also brings added tools to testing, such as comparing object hierarchies and collection, which otherwise would have to be tested individually or implemented for the testing effort.
