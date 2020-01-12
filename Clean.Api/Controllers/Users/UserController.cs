@@ -22,6 +22,11 @@ namespace Clean.Api.Controllers.Users
             _mapper = mapper;
         }
         
+        /// <summary>
+        /// Get User By Id
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         [HttpGet("/api/user/{userId:int}")]
         public async Task<IActionResult> Get(int userId)
         {

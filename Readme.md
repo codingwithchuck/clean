@@ -1,6 +1,21 @@
 ﻿# .Net Core 3+ Web API Clean Architecture Example
 
- This example roughly follows the Clean Architecture pattern. This project is a work in progress and is not fully baked. There is enough in place to get an ambitious person started.
+This example roughly follows the Clean Architecture pattern. This project is a work in progress and is not fully baked. There is enough in place to get an ambitious person started.
+
+
+
+#### Sample Endpoints 
+
+http://localhost:5000/api/users/status/active - requires a header of x-api-key with a value of 9876
+http://localhost:5000/api/users/status/active - no authentication required
+
+
+
+#### Authentication and Authorization
+
+Authentication can be done many ways. In this example an ActionFilter is implemented to demonstrate how ActionFilters work rather than how to implement authentication.  To add authentication, my recommendation is to use libraries, patterns and libraries built by Microsoft and other respected security experts in the industry.
+
+
 
  ## Patterns and Libraries Used
 
@@ -16,6 +31,12 @@
  ### AutoMapper
 
  [AutoMapper](https://automapper.org/) is an injectable API for mapping one type to another. It centralizes and allows for mapping reuse that typically happens between types when crossing layer boundaries (UI/API, Domain, Data, External Services).
+
+
+
+### Bogus
+
+[Bogus](https://github.com/bchavez/Bogus) is an library for creating dummy realistic test data. This library is used to create data to API against.
 
  ### Clean Architecture
 
@@ -53,10 +74,12 @@
 
  ## Testing
 
- ### XUnit
-
- [XUnit](https://xunit.net/) brings simplicity to testing in .Net. Its minimal testing approach gives you the tools to test your application without getting in your way.
-
  ### Fluent Assertions
 
  [Fluent Assertions](https://fluentassertions.com/) brings much-needed readability to the tests in the code and the failed tests. It also brings added tools to testing, such as comparing object hierarchies and collection, which otherwise would have to be tested individually or implemented for the testing effort.
+
+
+
+ ### XUnit
+
+ [XUnit](https://xunit.net/) brings simplicity to testing in .Net. Its minimal testing approach gives you the tools to test your application without getting in your way.

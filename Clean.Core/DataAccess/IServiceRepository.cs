@@ -5,6 +5,6 @@ namespace Clean.Core.DataAccess
 {
     public interface IServiceRepository
     {
-        IList<Service> Get();
+        List<Service> GetAllServices();
     }
 }

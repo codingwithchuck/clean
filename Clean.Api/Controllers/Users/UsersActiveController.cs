@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Clean.Api.Core.ActionFilters;
 using Clean.Api.ViewModels;
 using Clean.Core.Domain;
 using Clean.Core.ValueTypes;
@@ -21,7 +22,12 @@ namespace Clean.Api.Controllers.Users
             _mapper = mapper;
         }
         
+        /// <summary>
+        /// Get active users
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("/api/users/status/active")]
+        [HeaderSecret("x-api-key", "9876")]
         public async Task<IActionResult> Get()
         {
             var result = await _mediator.Send(new FilterUserByStatusRequest(AccountStatus.Active));

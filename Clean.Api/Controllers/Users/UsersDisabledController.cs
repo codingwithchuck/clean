@@ -21,6 +21,10 @@ namespace Clean.Api.Controllers.Users
             _mapper = mapper;
         }
         
+        /// <summary>
+        /// Get disabled users
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("/api/users/status/disabled")]
         public async Task<IActionResult> Get()
         {

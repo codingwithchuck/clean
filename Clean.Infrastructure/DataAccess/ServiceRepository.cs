@@ -15,7 +15,7 @@ namespace Clean.Infrastructure.DataAccess
         /// Retrieves all the services in the data store
         /// </summary>
         /// <returns></returns>
-        public IList<Service> Get() 
+        public List<Service> GetAllServices() 
             => _data.Services;
     }
 }

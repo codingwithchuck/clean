@@ -1,5 +1,6 @@
 using System.Reflection;
 using AutoMapper;
+using Clean.Api.Core.ActionFilters;
 using Clean.Api.Core.TypeMappings;
 using Clean.Core.DataAccess;
 using Clean.Functionality.Users.GetUserById;
