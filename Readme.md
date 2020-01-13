@@ -1,4 +1,4 @@
-﻿# .Net Core 3+ Web API Clean Architecture Example
+# .Net Core 3+ Web API Clean Architecture Example
 
 This example roughly follows the Clean Architecture pattern. This project is a work in progress and is not fully baked. There is enough in place to get an ambitious person started.
 
@@ -60,7 +60,7 @@ Authentication can be done many ways. In this example an ActionFilter is impleme
 
  The [Specification Pattern](https://deviq.com/specification-pattern/) decouples and abstracts the conditions which are used to filter a collection of items. This allows for generic filter code, testing the conditions independently of the data sets and for condition reuse.
 
-```
+```c#
    public class AccountStatusSpecifications : DataSpecification<User>
    {
      public AccountStatusSpecifications(AccountStatus status)
@@ -77,6 +77,19 @@ Authentication can be done many ways. In this example an ActionFilter is impleme
  ### Fluent Assertions
 
  [Fluent Assertions](https://fluentassertions.com/) brings much-needed readability to the tests in the code and the failed tests. It also brings added tools to testing, such as comparing object hierarchies and collection, which otherwise would have to be tested individually or implemented for the testing effort.
+
+
+
+```c#
+[Fact]
+public void filter_user_by_account_status()
+{
+    var specification = new AccountStatusSpecifications(AccountStatus.Active);
+    var users = DataSpecificationProcessor<User>.BuildQuery(_users.AsQueryable(), specification);
+
+    users.ToList().Should().HaveCount(1);
+}
+```
 
 
 
