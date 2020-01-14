@@ -1,4 +1,4 @@
-# .Net Core 3+ Web API Clean Architecture Example
+# .Net Core 3+ Web API Clean Architecture Starter Solution
 
 This example roughly follows the Clean Architecture pattern. This project is a work in progress and is not fully baked. There is enough in place to get an ambitious person started.
 
