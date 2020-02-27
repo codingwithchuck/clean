@@ -2,8 +2,8 @@
 using AutoMapper;
 using Clean.Api.ViewModels;
 using Clean.Core.Domain;
-using Clean.Functionality.Subscriptions.SubscribeToService;
-using Clean.Functionality.Subscriptions.UnsubscribeFromService;
+using Clean.FeatureSets.Subscriptions.SubscribeToService;
+using Clean.FeatureSets.Subscriptions.UnsubscribeFromService;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

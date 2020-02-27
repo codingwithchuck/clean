@@ -3,7 +3,7 @@ using System.Linq;
 using Clean.Common.Data.Specifications;
 using Clean.Core.Domain;
 using Clean.Core.ValueTypes;
-using Clean.Functionality.Users.FilterUserByStatus;
+using Clean.FeatureSets.Users.FilterUserByStatus;
 using FluentAssertions;
 using Xunit;
 

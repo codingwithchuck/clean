@@ -2,7 +2,7 @@
 using AutoMapper;
 using Clean.Api.ViewModels;
 using Clean.Core.Domain;
-using Clean.Functionality.Admin;
+using Clean.FeatureSets.Admin;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

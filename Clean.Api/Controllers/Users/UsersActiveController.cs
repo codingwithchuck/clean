@@ -5,7 +5,7 @@ using Clean.Api.Core.ActionFilters;
 using Clean.Api.ViewModels;
 using Clean.Core.Domain;
 using Clean.Core.ValueTypes;
-using Clean.Functionality.Users.FilterUserByStatus;
+using Clean.FeatureSets.Users.FilterUserByStatus;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

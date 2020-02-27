@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Clean.Api.ViewModels;
 using Clean.Core.Domain;
-using Clean.Functionality.Services;
+using Clean.FeatureSets.Services;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

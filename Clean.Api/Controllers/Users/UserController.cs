@@ -2,10 +2,10 @@
 using AutoMapper;
 using Clean.Api.ViewModels;
 using Clean.Core.Domain;
-using Clean.Functionality.Users.AddUser;
-using Clean.Functionality.Users.DeleteUser;
-using Clean.Functionality.Users.GetUserById;
-using Clean.Functionality.Users.UpdateUser;
+using Clean.FeatureSets.Users.AddUser;
+using Clean.FeatureSets.Users.DeleteUser;
+using Clean.FeatureSets.Users.GetUserById;
+using Clean.FeatureSets.Users.UpdateUser;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

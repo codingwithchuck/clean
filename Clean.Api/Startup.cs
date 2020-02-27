@@ -3,7 +3,7 @@ using AutoMapper;
 using Clean.Api.Core.ActionFilters;
 using Clean.Api.Core.TypeMappings;
 using Clean.Core.DataAccess;
-using Clean.Functionality.Users.GetUserById;
+using Clean.FeatureSets.Users.GetUserById;
 using Clean.Infrastructure.DataAccess;
 using MediatR;
 using Microsoft.AspNetCore.Builder;

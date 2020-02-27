@@ -10,7 +10,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clean.Api", "Clean.Api\Clea
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clean.Common", "Clean.Common\Clean.Common.csproj", "{49C01621-25C5-4138-BD6A-5123BA92E96C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clean.Functionality", "Clean.Functionality\Clean.Functionality.csproj", "{A26CB61F-6BD3-4238-89A5-8BBD84320915}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clean.FeatureSets", "Clean.FeatureSets\Clean.FeatureSets.csproj", "{A26CB61F-6BD3-4238-89A5-8BBD84320915}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

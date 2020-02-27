@@ -1,6 +1,60 @@
-# .Net Core 3+ Web API Clean Architecture Starter Solution
+# .Net Core 3+ Web API,  Clean Architecture, DevOps and  Process
 
-This example roughly follows the Clean Architecture pattern. This project is a work in progress and is not fully baked. There is enough in place to get an ambitious person started.
+Clean Architecture at it's core is an architecture pattern where dependencies are taken on abstractions (such as interfaces). Core application/business concepts live in the middle and we conceptially move to the outside the implementations become more concrete. With this architecture we are able to test the application without needing the concrete implementations. We usually wire up concrete implementation at runtime through dependency injection.  At first, this can be confusing, but bear with me, I'll explain how it works in practice.
+
+
+
+## Clean Architecture Conceptual Diagram
+
+
+
+![clean-diagram](Artifacts/clean-diagram.png)
+
+
+
+
+
+### The Flow of Dependencies
+
+> The overriding rule that makes this architecture work is *The Dependency Rule*. This rule says that *source code dependencies* can only point *inwards*. Nothing in an inner circle can know anything at all about something in  an outer circle. In particular, the name of something declared in an  outer circle must not be mentioned by the code in the an inner circle.  That includes, functions, classes. variables, or any other named  software entity.
+>
+> By the same token, data formats used in an outer circle should not be used by an inner circle, especially if those formats are generate by a  framework in an outer circle. We don’t want anything in an outer circle  to impact the inner circles.  - [Uncle Bob Martin](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
+
+
+
+## Projects
+
+### Clean.Core
+
+Clean.Core holds the business domain, such as entities, value objects, interfaces, DTOs, etc, many of the system's nouns live in this project. For example, the user DTO might live in this project. 
+
+
+
+There also can be Domain Services provide functionality and operate on other Core (Clean.Core) concerns. 
+
+
+
+### Clean.FeatureSets
+
+Clean.FeatureSets is where the vertical slices of the business functionality live. This project leverages Mediatr from Jimmy Bogard. I'll talk more to Mediatr later. In a nutshell Mediatr implements the [mediator pattern](https://en.wikipedia.org/wiki/Mediator_pattern), thus eliminating the coupling between the featureSets and the Clean.Api Project. If  we didn't use the mediator pattern, we'd likely need to share a common class hierachry between the Clean.Api and Clean.FeatureSets projects which would couple the two projects.
+
+
+
+Vertical Slice architecture originally gained populatiryt on the client-side. Before vertical slices, functainlity was grouped by type, for example, all  controllers lived in a controller folder. This scattered related functinality from each other. Vertical Slices brings all the related functionality together, usually within the same folder. 
+
+
+
+When a change is needed, an engineer doesn't need to hunt around the application looking for the code to change, all of it is in a single folder. In practice, it's not always possible to put all the related code together, however the code can be grouped together in various layers making discovery much easier.
+
+
+
+For more on Vertical Slices see [Jimmy Bogard's article on the subject](https://jimmybogard.com/vertical-slice-architecture/).
+
+
+
+
+
+
 
 
 
@@ -96,3 +150,8 @@ public void filter_user_by_account_status()
  ### XUnit
 
  [XUnit](https://xunit.net/) brings simplicity to testing in .Net. Its minimal testing approach gives you the tools to test your application without getting in your way.
+
+
+
+### MOQ
+
