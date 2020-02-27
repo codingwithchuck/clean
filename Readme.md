@@ -155,3 +155,24 @@ public void filter_user_by_account_status()
 
 ### MOQ
 
+
+
+//Write / Code
+
+- [ ]  Instrumentation
+
+- [ ]  Testing
+
+  - [ ]  Unit
+  - [ ]  Integration
+  - [ ]  UI (https://medium.com/welldone-software/an-overview-of-javascript-testing-in-2019-264e19514d0a)
+
+- [ ]  Process (build)
+
+- [ ]  Memory Caching
+
+- [ ] Memory Management in Blazor (Prism)
+
+- [ ] Bring in Framework to send messages some the Business layer to the UI.
+
+  
