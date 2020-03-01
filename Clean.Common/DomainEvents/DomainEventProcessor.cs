@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Clean.Core.DomainEvents
+namespace Clean.Common.DomainEvents
 {
     public class DomainEventProcessor
     {
@@ -8,7 +8,7 @@ namespace Clean.Core.DomainEvents
         /// Raises all the events on IDomainEvent interface
         /// </summary>
         /// <param name="entity"></param>
-        public void Raise(IDomainEvent entity)
+        public static void Raise(IDomainEvent entity)
         {
             // guard against a null entity
             var events = entity?.Events ?? new List<IEvent>();

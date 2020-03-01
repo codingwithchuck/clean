@@ -1,9 +1,9 @@
 using System;
 using System.Linq.Expressions;
 
-namespace Clean.Common.Data.Specifications.Ordering
+namespace Clean.Common.Specifications.Ordering
 {
-    public class Descending<T> : IOrderBy<T> where T : class
+    public class Descending<T> : IOrderBy<T>
     {
         /// <summary>
         /// Set the property to order by.

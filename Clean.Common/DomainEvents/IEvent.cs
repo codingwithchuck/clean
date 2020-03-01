@@ -1,4 +1,4 @@
-namespace Clean.Core.DomainEvents
+namespace Clean.Common.DomainEvents
 {
     public interface IEvent
     {

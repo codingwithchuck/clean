@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using Clean.Common.Data.Specifications.Ordering;
+using Clean.Common.Specifications.Ordering;
 
 namespace Clean.Common.Specifications
 {
-    public interface ISpecification<T> where T : class
+    public interface ISpecification<T>
     {
         /// <summary>
         /// The collection of filters for the specification.

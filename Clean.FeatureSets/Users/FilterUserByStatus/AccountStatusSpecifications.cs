@@ -1,11 +1,10 @@
-﻿using Clean.Common.Data.Specifications;
-using Clean.Common.Specifications;
+﻿using Clean.Common.Specifications;
 using Clean.Core.Domain;
 using Clean.Core.ValueTypes;
 
 namespace Clean.FeatureSets.Users.FilterUserByStatus
 {
-    public class AccountStatusSpecifications : DataSpecification<User>
+    public class AccountStatusSpecifications : Specification<User>
     {
         public AccountStatusSpecifications(AccountStatus status)
         {

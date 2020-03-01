@@ -1,15 +1,13 @@
-﻿﻿ namespace Clean.Common.Notifications
+﻿﻿  namespace Clean.Common.Notifications.NotificationsTypes
 {
     public class ErrorNotification : INotification
     {
         public ErrorNotification() { }
 
-        public ErrorNotification(string message)
-        {
-            Message = message;
-        }
+        public ErrorNotification(string message) 
+            => Message = message;
 
-        public NotificationType NotificationType { get; } = NotificationType.Error;
+        public NotificationValueObject Notification { get; } = NotificationValueObject.Error;
         public string Message { get; set; } = string.Empty;
     }
 }

@@ -42,7 +42,7 @@ namespace Clean.Tests
         private void filter_user_by_account_status(AccountStatus status)
         {
             var specification = new AccountStatusSpecifications(status);
-            var users = DataSpecificationProcessor<User>.BuildQuery(_users.AsQueryable(), specification);
+            var users = SpecificationProcessor<User>.ApplySpecification(_users.AsQueryable(), specification);
 
             users.ToList().Should().HaveCount(1);
         }

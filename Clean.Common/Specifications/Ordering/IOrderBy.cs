@@ -1,9 +1,9 @@
 using System;
 using System.Linq.Expressions;
 
-namespace Clean.Common.Data.Specifications.Ordering
+namespace Clean.Common.Specifications.Ordering
 {
-    public interface IOrderBy<TEntity> where TEntity : class
+    public interface IOrderBy<TEntity>
     {
         /// <summary>
         /// Set the property to order by.

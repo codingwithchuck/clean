@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Clean.Core.DomainEvents
+namespace Clean.Common.DomainEvents
 {
     public static class DomainEventExtensions
     {
@@ -29,6 +29,15 @@ namespace Clean.Core.DomainEvents
         public static void ClearEvents(this IDomainEvent entity)
         {
             entity?.Events?.Clear();
+        }
+        
+        /// <summary>
+        /// Raises all the events in the Event collection.  
+        /// </summary>
+        /// <param name="entity"></param>
+        public static void RaiseEvents(this IDomainEvent entity)
+        {
+            DomainEventProcessor.Raise(entity);
         }
 
         /// <summary>

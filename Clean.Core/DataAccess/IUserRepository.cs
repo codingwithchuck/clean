@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Clean.Common.Data.Specifications;
 using Clean.Common.Specifications;
 using Clean.Core.Domain;
 
@@ -17,6 +16,6 @@ namespace Clean.Core.DataAccess
 
         void Delete(int userId);
 
-        List<User> Filter(IDataSpecification<User> specification);
+        List<User> Filter(ISpecification<User> specification);
     }
 }

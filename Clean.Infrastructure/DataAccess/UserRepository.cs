@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Clean.Common.Data.Specifications;
 using Clean.Common.Specifications;
 using Clean.Core.DataAccess;
 using Clean.Core.Domain;
@@ -88,11 +87,10 @@ namespace Clean.Infrastructure.DataAccess
         /// </summary>
         /// <param name="specification"></param>
         /// <returns></returns>
-        public List<User> Filter(IDataSpecification<User> specification)
+        public List<User> Filter(ISpecification<User> specification)
         {
-            var queryable = _data.Users.AsQueryable();
-            return DataSpecificationProcessor<User>
-                .BuildQuery(queryable, specification)
+            return _data.Users
+                .ApplySpecification(specification)
                 .ToList();
         }
     }

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Clean.Core.DomainEvents
+namespace Clean.Common.DomainEvents
 {
     /// <summary>
     /// Adds Domain events to entity. When adding and removing events, prefer the event collection.

@@ -1,19 +1,15 @@
-﻿﻿using Clean.Common.Notifications;
-
- namespace Momntz.Common.Dispatches
+﻿﻿ namespace Clean.Common.Notifications.NotificationsTypes
 {
-    public class InfoDispatch : IDispatch
+    public class InfoNotification : INotification
     {
-        public InfoDispatch()
-        {
-        }
+        public InfoNotification() { }
 
-        public InfoDispatch(string message)
+        public InfoNotification(string message)
         {
             Message = message;
         }
 
-        public DispatchType DispatchType { get; } = DispatchType.Info;
+        public NotificationValueObject Notification { get; } = NotificationValueObject.Info;
         public string Message { get; set; } = string.Empty;
     }
 }

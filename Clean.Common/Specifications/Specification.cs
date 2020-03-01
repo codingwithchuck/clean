@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using Clean.Common.Data.Specifications.Ordering;
+using Clean.Common.Specifications.Ordering;
 
 namespace Clean.Common.Specifications
 {
-    public class Specification<TType> : ISpecification<TType> where TType : class
+    public class Specification<TType> : ISpecification<TType>
     {
         /// <summary>
         /// The collection of filters for the specification

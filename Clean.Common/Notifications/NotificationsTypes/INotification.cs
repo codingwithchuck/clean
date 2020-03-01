@@ -1,10 +1,8 @@
-﻿﻿ using Clean.Common.Notifications.NotificationsTypes;
-
-  namespace Clean.Common.Notifications
+﻿﻿  namespace Clean.Common.Notifications.NotificationsTypes
 {
     public interface INotification
     {
-        NotificationType NotificationType { get; }
+        NotificationValueObject Notification { get; }
 
         string Message { get; }
     }

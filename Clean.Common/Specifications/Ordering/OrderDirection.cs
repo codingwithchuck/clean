@@ -1,4 +1,4 @@
-namespace Clean.Common.Data.Specifications.Ordering
+namespace Clean.Common.Specifications.Ordering
 {
     public enum OrderDirection
     {

@@ -1,16 +1,34 @@
 using System.Linq;
-using Clean.Common.Data.Specifications.Ordering;
+using Clean.Common.Specifications.Ordering;
 
 namespace Clean.Common.Specifications
 {
-    public static class SpecificationProcessor<TType> where TType : class
+    public class SpecificationProcessor<TType>
     {
-        public static IQueryable<TType> BuildQuery(IQueryable<TType> query, ISpecification<TType> specification)
+        /// <summary>
+        /// Applies the specification to the IQueryable type. This includes the Filtering and the Ordering.
+        /// </summary>
+        /// <param name="query"></param>
+        /// <param name="specification"></param>
+        /// <returns></returns>
+        public IQueryable<TType> BuildQuery(IQueryable<TType> query, ISpecification<TType> specification)
         {
             query = AddFilters(query, specification);
             query = AddOrdering(query, specification);
 
             return query;
+        }
+
+        /// <summary>
+        /// Applies the specification to the IQueryable type. This includes the Filtering and the Ordering.
+        /// </summary>
+        /// <param name="query"></param>
+        /// <param name="specification"></param>
+        /// <returns></returns>
+        public static IQueryable<TType> ApplySpecification(IQueryable<TType> query, ISpecification<TType> specification)
+        {
+            var processor = new SpecificationProcessor<TType>();
+            return processor.BuildQuery(query, specification);
         }
         
         /// <summary>
@@ -19,7 +37,7 @@ namespace Clean.Common.Specifications
         /// <param name="query"></param>
         /// <param name="specification"></param>
         /// <returns></returns>
-        private static IQueryable<TType> AddOrdering(IQueryable<TType> query, ISpecification<TType> specification)
+        protected IQueryable<TType> AddOrdering(IQueryable<TType> query, ISpecification<TType> specification)
         {
             IOrderedQueryable<TType> orderBy = null;
 
@@ -46,7 +64,7 @@ namespace Clean.Common.Specifications
         /// <param name="query"></param>
         /// <param name="specification"></param>
         /// <returns></returns>
-        private static IQueryable<TType> AddFilters(IQueryable<TType> query, ISpecification<TType> specification)
+        protected IQueryable<TType> AddFilters(IQueryable<TType> query, ISpecification<TType> specification)
         {
             foreach (var t in specification.Filters)
             {
