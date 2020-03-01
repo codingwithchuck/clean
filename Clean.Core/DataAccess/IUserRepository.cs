@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Clean.Common.Data.Specifications;
+using Clean.Common.Specifications;
 using Clean.Core.Domain;
 
 namespace Clean.Core.DataAccess

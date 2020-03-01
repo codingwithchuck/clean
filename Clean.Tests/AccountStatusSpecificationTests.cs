@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Clean.Common.Data.Specifications;
+using Clean.Common.Specifications;
 using Clean.Core.Domain;
 using Clean.Core.ValueTypes;
 using Clean.FeatureSets.Users.FilterUserByStatus;

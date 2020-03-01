@@ -1,4 +1,5 @@
 ﻿using Clean.Common.Data.Specifications;
+using Clean.Common.Specifications;
 using Clean.Core.Domain;
 using Clean.Core.ValueTypes;
 

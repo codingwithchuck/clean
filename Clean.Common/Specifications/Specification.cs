@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using Clean.Common.Data.Ordering;
+using Clean.Common.Data.Specifications.Ordering;
 
-namespace Clean.Common.Data.Specifications
+namespace Clean.Common.Specifications
 {
-    public class DataSpecification<TType> : IDataSpecification<TType> where TType : class
+    public class Specification<TType> : ISpecification<TType> where TType : class
     {
         /// <summary>
         /// The collection of filters for the specification
@@ -23,7 +23,7 @@ namespace Clean.Common.Data.Specifications
         /// </summary>
         /// <param name="filter"></param>
         /// <returns></returns>
-        public DataSpecification<TType> Where(Expression<Func<TType, bool>> filter)
+        public Specification<TType> Where(Expression<Func<TType, bool>> filter)
         {
             Filters.Add(filter);
             return this;
@@ -34,7 +34,7 @@ namespace Clean.Common.Data.Specifications
         /// </summary>
         /// <param name="filter"></param>
         /// <returns></returns>
-        public DataSpecification<TType> And(Expression<Func<TType, bool>> filter)
+        public Specification<TType> And(Expression<Func<TType, bool>> filter)
         {
             return Where(filter);
         }
@@ -44,7 +44,7 @@ namespace Clean.Common.Data.Specifications
         /// </summary>
         /// <param name="order"></param>
         /// <returns></returns>
-        public DataSpecification<TType> Ascending(Expression<Func<TType, object>> order)
+        public Specification<TType> Ascending(Expression<Func<TType, object>> order)
         {
             Orders.Add(new Ascending<TType>
             {
@@ -59,7 +59,7 @@ namespace Clean.Common.Data.Specifications
         /// </summary>
         /// <param name="order"></param>
         /// <returns></returns>
-        public DataSpecification<TType> Descending(Expression<Func<TType, object>> order)
+        public Specification<TType> Descending(Expression<Func<TType, object>> order)
         {
             Orders.Add(new Descending<TType>
             {

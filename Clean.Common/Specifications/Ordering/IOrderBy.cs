@@ -1,7 +1,7 @@
 using System;
 using System.Linq.Expressions;
 
-namespace Clean.Common.Data.Ordering
+namespace Clean.Common.Data.Specifications.Ordering
 {
     public interface IOrderBy<TEntity> where TEntity : class
     {

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Clean.Common.Data.Specifications;
+using Clean.Common.Specifications;
 using Clean.Core.DataAccess;
 using Clean.Core.Domain;
 

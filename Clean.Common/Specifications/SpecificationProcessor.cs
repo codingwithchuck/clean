@@ -1,11 +1,11 @@
 using System.Linq;
-using Clean.Common.Data.Ordering;
+using Clean.Common.Data.Specifications.Ordering;
 
-namespace Clean.Common.Data.Specifications
+namespace Clean.Common.Specifications
 {
-    public static class DataSpecificationProcessor<TType> where TType : class
+    public static class SpecificationProcessor<TType> where TType : class
     {
-        public static IQueryable<TType> BuildQuery(IQueryable<TType> query, IDataSpecification<TType> specification)
+        public static IQueryable<TType> BuildQuery(IQueryable<TType> query, ISpecification<TType> specification)
         {
             query = AddFilters(query, specification);
             query = AddOrdering(query, specification);
@@ -19,7 +19,7 @@ namespace Clean.Common.Data.Specifications
         /// <param name="query"></param>
         /// <param name="specification"></param>
         /// <returns></returns>
-        private static IQueryable<TType> AddOrdering(IQueryable<TType> query, IDataSpecification<TType> specification)
+        private static IQueryable<TType> AddOrdering(IQueryable<TType> query, ISpecification<TType> specification)
         {
             IOrderedQueryable<TType> orderBy = null;
 
@@ -46,7 +46,7 @@ namespace Clean.Common.Data.Specifications
         /// <param name="query"></param>
         /// <param name="specification"></param>
         /// <returns></returns>
-        private static IQueryable<TType> AddFilters(IQueryable<TType> query, IDataSpecification<TType> specification)
+        private static IQueryable<TType> AddFilters(IQueryable<TType> query, ISpecification<TType> specification)
         {
             foreach (var t in specification.Filters)
             {
